@@ -4,14 +4,18 @@
  * and open the template in the editor.
  */
 
-package erp;
-
-import java.util.logging.Logger;
+package br.com.aromatel.erp.modelo.cadastros;
 
 /**
  *
  * @author henriquevalcanaia
  */
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 public class Produto implements java.io.Serializable{
     
     private int codigo;
