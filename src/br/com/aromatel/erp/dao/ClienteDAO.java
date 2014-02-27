@@ -7,14 +7,16 @@
 package br.com.aromatel.erp.dao;
 
 import br.com.aromatel.erp.modelo.cadastros.Cliente;
+import javax.persistence.EntityManager;
 
 /**
  *
  * @author henriquevalcanaia
  */
-public class ClienteDAO {
-
-    public ClienteDAO() {
+public class ClienteDAO extends DAOBase<Cliente>{
+    
+    public void ClienteDAO(){
+        
     }
     
     public Cliente getClienteByCodigo(int codigo){

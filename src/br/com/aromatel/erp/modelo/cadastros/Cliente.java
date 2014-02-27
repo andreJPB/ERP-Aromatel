@@ -6,26 +6,28 @@
 
 package br.com.aromatel.erp.modelo.cadastros;
 
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author henriquevalcanaia
  */
+@Entity
+@Table(name = "CLIENTE")
+public class Cliente extends Pessoa implements EntityBase{
 
-public class Cliente implements EntityBase{
+    public Cliente() {
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente" + super.toString();
+    }
     
-    private int codigo;
-    private String nome;
-    private String inscricao;
-    private int tipoInscricao;
-    private String uf;
-    private String inscricaoEstadual;
-    private int ddd;
-    private String fone;
-
     @Override
     public boolean existeNoBanco() {
         return true;
     }
-    
-    
 }

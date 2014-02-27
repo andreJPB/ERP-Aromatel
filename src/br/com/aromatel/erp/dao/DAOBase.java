@@ -10,16 +10,21 @@ package br.com.aromatel.erp.dao;
  * @author henriquevalcanaia
  */
 import br.com.aromatel.erp.modelo.cadastros.EntityBase;
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
 import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 
-public abstract class DAOBase<Entity extends EntityBase> {
+public abstract class DAOBase<Entity extends EntityBase> implements Serializable {
 
     private Class<Entity> entityClass;
     private EntityManager em;
+    
+    public DAOBase() {
+        
+    }
 
     @SuppressWarnings("unchecked")
     public DAOBase(EntityManager em) {
@@ -30,12 +35,15 @@ public abstract class DAOBase<Entity extends EntityBase> {
     }
 
     public Entity gravar(Entity e) {
-        if (e.existeNoBanco()) {
+        //if (e.existeNoBanco()) {
             return em.merge(e);
+            
+        /*
         } else {
             em.persist(e);
             return e;
-        }
+        */
+        //}
     }
 
     public void remove(Entity e) {
