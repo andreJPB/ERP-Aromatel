@@ -7,6 +7,7 @@
 package br.com.aromatel.erp.modelo.movimento;
 
 import br.com.aromatel.erp.modelo.cadastros.Cliente;
+import java.util.Date;
 
 /**
  *
@@ -15,5 +16,11 @@ import br.com.aromatel.erp.modelo.cadastros.Cliente;
 public class Saida extends Nota{
     
     private Cliente cliente;
+    private Date dataSaida;
+
+    @Override
+    public boolean existeNoBanco() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -6,16 +6,20 @@
 
 package br.com.aromatel.erp.modelo.movimento;
 
+import br.com.aromatel.erp.modelo.cadastros.EntityBase;
+import java.util.Date;
+
 /**
  *
  * @author henriquevalcanaia
  */
-public class Nota {
+public abstract class Nota implements EntityBase{
     
     private int codigo;
     private float valorContabil;
     private float valorDesconto;
     private float valorAcrescimo;
+    private Date dataNota;
     
     
 }

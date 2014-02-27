@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.aromatel.erp.modelo.cadastros;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 /**
  *
@@ -15,9 +19,12 @@ package br.com.aromatel.erp.modelo.cadastros;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+@Entity
+@Table(name = "PRODUTOS")
+public class Produto implements java.io.Serializable {
 
-public class Produto implements java.io.Serializable{
-    
+    @Id
+    @SequenceGenerator(name = "SEQ_COD_PRODUTO", sequenceName = "SEQ_COD_PRODUTO", allocationSize = 1)
     private int codigo;
     private String descricao;
     private String codigoBarras;
@@ -89,5 +96,4 @@ public class Produto implements java.io.Serializable{
     public String toString() {
         return "Produto{" + "codigo=" + codigo + ", descricao=" + descricao + ", codigoBarras=" + codigoBarras + ", NCM=" + NCM + ", valorUnitario=" + valorUnitario + ", quantidadeInicial=" + quantidadeInicial + '}';
     }
-    
 }

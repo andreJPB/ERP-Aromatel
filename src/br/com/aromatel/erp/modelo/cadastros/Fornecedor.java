@@ -10,6 +10,18 @@ package br.com.aromatel.erp.modelo.cadastros;
  *
  * @author henriquevalcanaia
  */
-public class Fornecedor {
+public class Fornecedor extends Pessoa implements EntityBase{
+
+    public Fornecedor() {
+    }
+
+    @Override
+    public String toString() {
+        return "Fornecedor" + super.toString();
+    }
     
+    @Override
+    public boolean existeNoBanco() {
+        return true;
+    }
 }
