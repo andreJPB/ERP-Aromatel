@@ -7,7 +7,6 @@
 package br.com.aromatel.erp.dao;
 
 import br.com.aromatel.erp.modelo.cadastros.Cliente;
-import javax.persistence.EntityManager;
 
 /**
  *

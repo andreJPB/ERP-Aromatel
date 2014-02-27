@@ -16,14 +16,22 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public abstract class DAOBase<Entity extends EntityBase> implements Serializable {
 
     private Class<Entity> entityClass;
     private EntityManager em;
-    
+
     public DAOBase() {
-        
+        if (em == null) {
+            EntityManagerFactory factory = Persistence.createEntityManagerFactory("ERPPU");
+            if (factory == null) {
+                factory = Persistence.createEntityManagerFactory("ERPPU");
+            }
+            em = factory.createEntityManager();
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -36,13 +44,15 @@ public abstract class DAOBase<Entity extends EntityBase> implements Serializable
 
     public Entity gravar(Entity e) {
         //if (e.existeNoBanco()) {
-            return em.merge(e);
-            
+        System.out.println("Gravando uhuhu");
+        em.merge(e);
+        return e;
+
         /*
-        } else {
-            em.persist(e);
-            return e;
-        */
+         } else {
+         em.persist(e);
+         return e;
+         */
         //}
     }
 
