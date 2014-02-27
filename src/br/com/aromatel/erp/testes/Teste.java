@@ -1,7 +1,9 @@
 package br.com.aromatel.erp.testes;
 
+import br.com.aromatel.erp.dao.CidadeDAO;
 import br.com.aromatel.erp.dao.ClienteDAO;
 import br.com.aromatel.erp.dao.DAO;
+import br.com.aromatel.erp.modelo.cadastros.Cidade;
 import br.com.aromatel.erp.modelo.cadastros.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,12 +49,23 @@ public class Teste {
         c.setNumero(374);
         c.setTipoEndereco(1);
         c.setTipoInscricao(1);
-        c.setUf("RS");/*
-        ClienteDAO dao = new ClienteDAO();
-        dao.gravar(c);*/
+        c.setUf("RS");
+        //ClienteDAO dao = new ClienteDAO();
+        //dao.gravar(c);
         
-        DAO<Cliente> d = new DAO<Cliente>(Cliente.class);
-        d.atualiza(c);
+        //DAO<Cliente> d = new DAO<Cliente>(Cliente.class);
+        //d.atualiza(c);
+        
+        Cidade a = new Cidade();
+        a.setCodigo(1);
+        a.setCodigoIBGE(1);
+        a.setDescricao("Criciuma");
+        a.setInativo(0);
+        a.setUf("SC");
+        
+        CidadeDAO d = new CidadeDAO();
+        d.gravar(a);
+        
                 
     }
 

@@ -17,11 +17,14 @@ import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 public abstract class DAOBase<Entity extends EntityBase> implements Serializable {
 
     private Class<Entity> entityClass;
+    @PersistenceContext
     private EntityManager em;
 
     public DAOBase() {
@@ -43,9 +46,21 @@ public abstract class DAOBase<Entity extends EntityBase> implements Serializable
     }
 
     public Entity gravar(Entity e) {
-        //if (e.existeNoBanco()) {
-        System.out.println("Gravando uhuhu");
-        em.merge(e);
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            if (e.existeNoBanco()) {
+                System.out.println("null e persist");
+                em.persist(e);
+            } else {
+                System.out.println("not null e merge");
+                em.merge(e);
+            }
+            transaction.commit();
+        } catch (Exception ex) {
+            transaction.rollback();
+            ex.printStackTrace();
+        }
         return e;
 
         /*
@@ -60,10 +75,9 @@ public abstract class DAOBase<Entity extends EntityBase> implements Serializable
         em.remove(e);
     }
 
-    public Entity findByPK(PK id) {
-        return em.find(entityClass, id);
-    }
-
+    /*public Entity findByPK(PK id) {
+     return em.find(entityClass, id);
+     }*/
     @SuppressWarnings("unchecked")
     public List<Entity> getAll() {
         Query query = getPersistenceContext().createQuery("SELECT o FROM " + entityClass.getName() + " o");
