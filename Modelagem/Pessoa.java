@@ -2,11 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.aromatel.erp.modelo.cadastros;
+ 
 
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -16,7 +20,11 @@ import javax.persistence.TemporalType;
  */
 @MappedSuperclass
 public abstract class Pessoa {
-    
+    @Id
+    @SequenceGenerator(name="SEQ_COD_PESSOA", sequenceName = "SEQ_COD_PESSOA", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_COD_PESSOA")
+    private int codigo;
+    	
     @Column(nullable = false)
     private String nomeFantasia;
     
@@ -69,7 +77,8 @@ public abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nomeFantasia, String razaoSocial, String inscricao, int tipoInscricao, String uf, String inscricaoEstadual, int ddd, String fone, String email, Date datacadastro, Integer tipoEndereco, String endereco, String bairro, String cidade, Integer numero, String cep) {
+    public Pessoa(int codigo, String nomeFantasia, String razaoSocial, String inscricao, int tipoInscricao, String uf, String inscricaoEstadual, int ddd, String fone, String email, Date datacadastro, Integer tipoEndereco, String endereco, String bairro, String cidade, Integer numero, String cep) {
+        this.codigo = codigo;
         this.nomeFantasia = nomeFantasia;
         this.razaoSocial = razaoSocial;
         this.inscricao = inscricao;
@@ -87,7 +96,15 @@ public abstract class Pessoa {
         this.numero = numero;
         this.cep = cep;
     }
-    
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public String getNomeFantasia() {
         return nomeFantasia;
     }

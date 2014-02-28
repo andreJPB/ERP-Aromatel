@@ -1,0 +1,36 @@
+Menu
+
+Controle
+
+Arquivos
+	Clientes
+	Fornecedores
+	-
+	Produtos
+	Grupos
+	Unidades
+	-
+	Cidades
+	Estados
+	Países
+
+Movimentos
+	Entradas
+	Saídas
+
+Relatórios
+	Fluxo de caixa real
+	Fluxo de caixa projetado
+	
+
+Utilitários
+	Alterar notas
+
+Ajuda
+	Sobre
+
+O que sai e entra de nota.
+O que entrou e saiu de dinheiro por período. (Isso será feito em cima das parcelas)
+Total de vendas e compras(notas)
+Relatório de variação de valor de compras.
+Ver oque tem pra receber, ver oque tem pra pagar, saber total de vendas, total de gastos, total de dinheiro recebido

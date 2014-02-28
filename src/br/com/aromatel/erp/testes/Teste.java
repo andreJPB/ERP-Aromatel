@@ -1,9 +1,6 @@
 package br.com.aromatel.erp.testes;
 
-import br.com.aromatel.erp.dao.CidadeDAO;
 import br.com.aromatel.erp.dao.ClienteDAO;
-import br.com.aromatel.erp.dao.DAO;
-import br.com.aromatel.erp.modelo.cadastros.Cidade;
 import br.com.aromatel.erp.modelo.cadastros.Cliente;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,7 +33,6 @@ public class Teste {
 
     public static void main(String args[]) {
         Cliente c = new Cliente();
-        c.setCodigo(1);
         c.setBairro("Menino Deus");
         c.setCidade("Porto Alegre");
         c.setDatacadastro(new Date(2014, 2, 26));
@@ -45,17 +41,20 @@ public class Teste {
         c.setFone("96292260");
         c.setEndereco("Avenida Getúlio Vargas");
         c.setInscricao("05970524921");
-        c.setNome("Henrique Valcanaia");
+        c.setNomeFantasia("Henrique Valcanaia");
+        c.setRazaoSocial("Henrique Valcanaia");
         c.setNumero(374);
         c.setTipoEndereco(1);
         c.setTipoInscricao(1);
         c.setUf("RS");
-        //ClienteDAO dao = new ClienteDAO();
-        //dao.gravar(c);
+        c.setCep("88813430");
+        c.setApelido("apelido");
+        ClienteDAO dao = new ClienteDAO();
+        dao.gravar(c);
         
         //DAO<Cliente> d = new DAO<Cliente>(Cliente.class);
         //d.atualiza(c);
-        
+        /*
         Cidade a = new Cidade();
         a.setCodigo(1);
         a.setCodigoIBGE(1);
@@ -65,7 +64,7 @@ public class Teste {
         
         CidadeDAO d = new CidadeDAO();
         d.gravar(a);
-        
+        */
                 
     }
 

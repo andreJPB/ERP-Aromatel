@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.aromatel.erp.modelo.cadastros;
+ 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -23,11 +21,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "PRODUTOS")
-public class Produto implements EntityBase, java.io.Serializable {
+public class Produto implements java.io.Serializable {
 
     @Id
-    @SequenceGenerator(name="SEQ_CODIGO_PRODUTO", sequenceName = "SEQ_CODIGO_PRODUTO", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CODIGO_PRODUTO")
+    @SequenceGenerator(name = "SEQ_COD_PRODUTO", sequenceName = "SEQ_COD_PRODUTO", allocationSize = 1)
     private int codigo;
     private String descricao;
     private String codigoBarras;
@@ -98,10 +95,5 @@ public class Produto implements EntityBase, java.io.Serializable {
     @Override
     public String toString() {
         return "Produto{" + "codigo=" + codigo + ", descricao=" + descricao + ", codigoBarras=" + codigoBarras + ", NCM=" + NCM + ", valorUnitario=" + valorUnitario + ", quantidadeInicial=" + quantidadeInicial + '}';
-    }
-
-    @Override
-    public boolean existeNoBanco() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

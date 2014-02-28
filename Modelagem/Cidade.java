@@ -1,9 +1,7 @@
-package br.com.aromatel.erp.modelo.cadastros;
+ 
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,8 +18,7 @@ public class Cidade implements EntityBase, Serializable{
     
 
     @Id
-    @SequenceGenerator(name="SEQ_CODIGO_CIDADE", sequenceName = "SEQ_CODIGO_CIDADE", allocationSize = 1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CODIGO_CIDADE")
+    @SequenceGenerator(name = "SEQ_CODIGO_CIDADE", sequenceName = "SEQ_CODIGO_CIDADE", initialValue = 1)
     private Integer codigo;
     
     private String nome;
