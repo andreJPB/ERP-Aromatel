@@ -4,19 +4,19 @@
  * and open the template in the editor.
  */
 
-package br.com.aromatel.erp.modelo.movimento;
+package br.com.aromatel.erp.modelo.movimentos;
 
-import br.com.aromatel.erp.modelo.cadastros.Cliente;
+import br.com.aromatel.erp.modelo.cadastros.Fornecedor;
 import java.util.Date;
 
 /**
  *
  * @author henriquevalcanaia
  */
-public class Saida extends Nota{
+public class Entrada extends Nota{
     
-    private Cliente cliente;
-    private Date dataSaida;
+    private Fornecedor fornecedor;
+    private Date dataEntrada;
 
     @Override
     public boolean existeNoBanco() {

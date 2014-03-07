@@ -4,17 +4,11 @@
  * and open the template in the editor.
  */
 
-package br.com.aromatel.erp.modelo.movimento;
-
-import br.com.aromatel.erp.modelo.cadastros.Produto;
+package br.com.aromatel.erp.modelo.movimentos;
 
 /**
  *
  * @author henriquevalcanaia
  */
-public class EntradaProduto {
-    
-    private Entrada nota;
-    private Produto produto;
-    
+public class EntradaParcela extends Parcela{
 }

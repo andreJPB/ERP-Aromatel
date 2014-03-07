@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 
-package br.com.aromatel.erp.modelo.movimento;
+package br.com.aromatel.erp.modelo.movimentos;
 
 /**
  *
  * @author henriquevalcanaia
  */
-public class EntradaParcela extends Parcela{
+public class SaidaParcelaBaixa {
+    
+    private SaidaParcela parcela;
+    
 }

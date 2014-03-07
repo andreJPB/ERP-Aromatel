@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.aromatel.erp.modelo.movimento;
+package br.com.aromatel.erp.modelo.movimentos;
 
 import java.util.Date;
 
