@@ -62,31 +62,22 @@ public abstract class DAOBase<Entity extends EntityBase> implements Serializable
             ex.printStackTrace();
         }
         return e;
-
-        /*
-         } else {
-         em.persist(e);
-         return e;
-         */
-        //}
     }
 
     public void remove(Entity e) {
         em.remove(e);
     }
 
-    /*public Entity findByPK(PK id) {
-     return em.find(entityClass, id);
-     }*/
+    public Entity getByCodigo(Integer codigo) {
+        return em.find(entityClass, codigo);
+    }
+
     @SuppressWarnings("unchecked")
     public List<Entity> getAll() {
         Query query = getPersistenceContext().createQuery("SELECT o FROM " + entityClass.getName() + " o");
         return (List<Entity>) query.getResultList();
     }
 
-    /**
-     * @return referência do componente <code>EntityManager</code>.
-     */
     protected EntityManager getPersistenceContext() {
         return this.em;
     }
